@@ -1,17 +1,3 @@
-from bs4 import BeautifulSoup
-import requests
-
-session = requests.Session()
-
-payload = {
-    'email':'', 
-    'password':'',
-    'subdomain': 'login'
-    }
-
-s = session.post("https://private-api.gupy.io/authentication/candidate/account/signin", data=payload)
-print(s.content)
-
 headers = {
     'candidate_key': '',
     'origin': 'https://login.gupy.io',

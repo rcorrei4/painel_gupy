@@ -1,13 +1,44 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 	<title></title>
 </head>
 <body>
-	{% for candidatura in candidaturas %}
-		<h4>{{ candidatura.nome }}</h4>
-	{% endfor %}
+	<div class="vagas">
+		{% for key, value in candidaturas.items %}
+			<div class="empresa">
+				<img src="{{ value.logo }}" width="100px" height="auto">
+				<h1>{{ value.nome }}</h1>
+			</div>
+			{% for candidatura, dict in value.candidaturas.items %}
+				<div class="candidatura">
+					<div class="titulo">
+						<p class="subtitulo">Vaga</p>
+						<h3>{{ dict.nome }}</h3>
+						<a href="#">Ver vaga ></a>
+					</div>
+					<div class="etapa">
+						<p class="subtitulo">Etapa</p>
+						<h3>{{ dict.teste_em_andamento.nome }}</h3>
+						<p>{{ dict.teste_em_andamento.descricao }}</p>
+
+						<div class="progresso">
+							<div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		{% endfor %}
+	</div>
 </body>
 </html>

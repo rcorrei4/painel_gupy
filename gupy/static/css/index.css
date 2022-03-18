@@ -1,0 +1,82 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', sans-serif;
+	color: #343434;
+	background-color: #8281E5;
+}
+
+div.vagas {
+	display: grid;
+	margin-right: auto;
+	margin-left: auto;
+	width: 80%;
+}
+
+div.empresa {
+	display: flex;
+	align-items: center;
+}
+
+div.empresa img {
+	margin-right: 20px;
+}
+
+div.empresa h1 {
+	color: white;
+}
+
+div.candidatura {
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+	border-radius: 15px;
+	box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.89);
+	overflow: hidden
+}
+
+div.candidatura .titulo .subtitulo {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+div.candidatura .etapa .subtitulo {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+div.candidatura h3 {
+	font-weight: 500;
+}
+
+div.candidatura .titulo {
+	padding: 20px;
+	background-color: #2a265f;
+	color: white;
+	width: 20%;
+}
+
+div.candidatura a {
+	color: rgba(255, 255, 255, 0.5);
+	text-decoration: none;
+}
+
+div.candidatura .etapa {
+	padding: 20px;
+	width: 80%;
+	background-color: white;
+}
+
+div.candidatura .progresso {
+	margin-top: 30px;
+	width: 40%;
+	height: 5px;
+	background-color: #DDDDDD;
+	border-radius: 15px;
+}
+
+div.candidatura .progresso div {
+	width: 10%;
+	height: 100%;
+	background-color: #2a265f;
+	border-radius: 15px;
+}

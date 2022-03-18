@@ -31,6 +31,11 @@ def login(request):
 			"form": LoginForm()
 			})
 
+def logout(request):
+	request.session['token'] = ""
+
+	return redirect('index')
+
 def index(request):
 	if request.session['token']:
 		candidaturas = pegar_informacoes(request.session.get('token'))
@@ -60,13 +65,16 @@ def pegar_informacoes(token):
 	candidaturas = dict()
 
 	# Pegar o domínio gupy de cada empresa onde o usuário se candidatou
-	for empresa in info_user['careerPages']:
+	for empresa in info_user['careerPages'][0:2]:
 		dominio_empresa = empresa['subdomain']
 
 		candidaturas[dominio_empresa] = {
 			'nome': empresa['name'],
+			'logo': empresa['urlLogo'],
 			'candidaturas': pegar_candidaturas(token, dominio_empresa)
 		}
+
+	return candidaturas
 
 	# print(json.dumps(candidaturas, sort_keys=False, indent=4))
 

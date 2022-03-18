@@ -20,9 +20,11 @@ def login(request):
 				'subdomain': 'login'
 				}
 
+			#Pegar o token do usuário através da api do gupy
 			r = requests.post("https://private-api.gupy.io/authentication/candidate/account/signin", data=payload)
 			response = r.json()
 
+			# Armazenar o token na sessão
 			request.session['token'] = response.get('token')
 			
 			return redirect('index')
@@ -76,8 +78,6 @@ def pegar_informacoes(token):
 
 	return candidaturas
 
-	# print(json.dumps(candidaturas, sort_keys=False, indent=4))
-
 def pegar_candidaturas(token, dominio_empresa):
 	headers = {
 		'candidate_key': token,
@@ -122,6 +122,7 @@ def pegar_info_candidaturas(token, dominio_empresa, id_candidatura):
 		'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36'
 		}
 
+	# Pegar as informações sobre a candidatura
 	info_candidatura = requests.get(
 		f'https://private-api.gupy.io/selection-process/candidate/application/{id_candidatura}/step', 
 		headers=headers

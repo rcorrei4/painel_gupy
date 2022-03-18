@@ -12,10 +12,15 @@
 	<title></title>
 </head>
 <body>
+	<nav>
+		<div>
+			<h1>Painel Gupy | <a href="{% url 'logout' %}">Logout</a></h1>
+		</div>
+	</nav>
 	<div class="vagas">
 		{% for key, value in candidaturas.items %}
 			<div class="empresa">
-				<img src="{{ value.logo }}" width="100px" height="auto">
+				<a href="https://{{ key }}.gupy.io/candidates/applications" target="__blank"><img src="{{ value.logo }}" width="100px" height="auto"></a>
 				<h1>{{ value.nome }}</h1>
 			</div>
 			{% for candidatura, dict in value.candidaturas.items %}

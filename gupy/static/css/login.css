@@ -1,6 +1,7 @@
 html, body {
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -19,7 +20,81 @@ body {
 	margin-right: 40px;
 }
 
+.login form h1 {
+	margin-bottom: 30px;
+}
+
 .login img {
 	width: 40%;
 	height: auto;
+}
+
+:focus {
+	outline: none;
+}
+
+.col-3{
+	position: relative;
+	margin-bottom: 30px;
+}
+
+input[type="text"], input[type="password"] {
+	font: 15px/24px "Inter", "Inter", sans-serif; 
+	color: #13335F; width: 100%; 
+	box-sizing: border-box; 
+	letter-spacing: 1px;
+	width: 100%;
+}
+
+.effect-16 {
+	border: 0; 
+	padding: 4px 0; 
+	border-bottom: 1px solid rgba(52, 52, 52, 0.5); 
+	background-color: transparent;
+}
+
+.effect-16 ~ .focus-border {
+	position: absolute; 
+	bottom: 0; 
+	left: 0; 
+	width: 0; 
+	height: 2px; 
+	background-color: #13335F; 
+	transition: 0.4s;
+}
+
+.effect-16:focus ~ .focus-border,
+.has-content.effect-16 ~ .focus-border {
+	width: 100%; 
+	transition: 0.4s;
+}
+
+.effect-16 ~ label {
+	position: absolute; 
+	left: 0; 
+	width: 100%; 
+	top: 9px; 
+	color: rgba(52, 52, 52, 0.5); 
+	transition: 0.3s; 
+	z-index: -1; 
+	letter-spacing: 0.5px;
+}
+
+.effect-16:focus ~ label, .has-content.effect-16 ~ label{
+	top: -16px; 
+	font-size: 12px; 
+	color: #13335F; 
+	transition: 0.3s;
+}
+
+form button {
+	background-color: #13335F;
+	color: white;
+	font-weight: bold;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	padding: 15px 50px;
+	margin-left: auto;
+	cursor: pointer;
 }

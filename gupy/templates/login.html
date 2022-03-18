@@ -5,18 +5,33 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<title>Login | Painel Gupy</title>
 </head>
 <body>
 	<div class="login">
 		<form action="{% url 'login' %}" method="post">
 			{% csrf_token %}
-			<h1>Insira sua conta da Gupy</h1>
-			{{ form }}
+			<h1>Insira sua conta do Gupy</h1>
+			<div class="col-3 input-effect" id="input-email">
+	        	{{ form.email }}
+	            <label>Email</label>
+	            <span class="focus-border"></span>
+	        </div>
+	        <div class="col-3 input-effect" id="input-email">
+	        	{{ form.password }}
+	            <label>Senha</label>
+	            <span class="focus-border"></span>
+	        </div>
 			<button type="submit">Logar-se</button>
 		</form>
 		<img src="{% static 'images/login_presentation.png' %}">
 	</div>
 </body>
+
+<script type="text/javascript" src="{% static 'js/login.js' %}"></script>
 </html>

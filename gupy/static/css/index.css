@@ -6,6 +6,20 @@ html, body {
 	background-color: #8281E5;
 }
 
+nav, nav div {
+	display: flex;
+	justify-content: center;
+}
+
+nav div h1 {
+	text-align: center;
+	color: white;
+}
+
+nav div a {
+	color: white;
+}
+
 div.vagas {
 	display: grid;
 	margin-right: auto;

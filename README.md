@@ -19,9 +19,15 @@ git clone https://github.com/rcorrei4/painel_gupy.git
 ```
 <br>
 
-Instale as dependências:
+Dentro da pasta do projeto instale as dependências:
 ```
 python3 -m pip install -r requirements.txt
+```
+<br>
+
+Migrar o banco de dados:
+```
+python3 manage.py runserver
 ```
 <br>
 

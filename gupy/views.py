@@ -67,7 +67,7 @@ def pegar_informacoes(token):
 	candidaturas = dict()
 
 	# Pegar o domínio gupy de cada empresa onde o usuário se candidatou
-	for empresa in info_user['careerPages'][0:2]:
+	for empresa in info_user['careerPages']:
 		dominio_empresa = empresa['subdomain']
 
 		candidaturas[dominio_empresa] = {

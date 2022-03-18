@@ -23,7 +23,7 @@
 					<div class="titulo">
 						<p class="subtitulo">Vaga</p>
 						<h3>{{ dict.nome }}</h3>
-						<a href="#">Ver vaga ></a>
+						<a href="https://{{ key }}.gupy.io/candidates/applications/{{ dict.id }}" target="__blank">Ver vaga ></a>
 					</div>
 					<div class="etapa">
 						<p class="subtitulo">Etapa</p>
@@ -31,14 +31,17 @@
 						<p>{{ dict.teste_em_andamento.descricao }}</p>
 
 						<div class="progresso">
-							<div>
+							<div class="barra-progresso" data-etapas="{{ dict.testes }}" data-etapa="{{ dict.teste_em_andamento.teste }}">
 								
 							</div>
 						</div>
+						<p>{{ dict.teste_em_andamento.teste }}/{{ dict.testes }}</p>
 					</div>
 				</div>
 			{% endfor %}
 		{% endfor %}
 	</div>
 </body>
+
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 </html>

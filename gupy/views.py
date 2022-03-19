@@ -1,6 +1,5 @@
 import requests
 import json
-from bs4 import BeautifulSoup
 
 from django.shortcuts import render, redirect
 

@@ -27,7 +27,7 @@ python3 -m pip install -r requirements.txt
 
 Migrar o banco de dados:
 ```
-python3 manage.py runserver
+python3 manage.py migrate
 ```
 <br>
 

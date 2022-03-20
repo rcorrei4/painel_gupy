@@ -93,3 +93,11 @@ div.candidatura .progresso div {
 	background-color: #2a265f;
 	border-radius: 15px;
 }
+
+.bi-check-circle-fill {
+	color: #00ff6a;
+}
+
+.bi-x-circle-fill {
+	color: #ff0000;
+}

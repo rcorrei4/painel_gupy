@@ -69,11 +69,16 @@ def pegar_informacoes(token):
 	for empresa in info_user['careerPages']:
 		dominio_empresa = empresa['subdomain']
 
-		candidaturas[dominio_empresa] = {
-			'nome': empresa['name'],
-			'logo': empresa['urlLogo'],
-			'candidaturas': pegar_candidaturas(token, dominio_empresa)
-		}
+		dict_pegar_candidaturas = pegar_candidaturas(token, dominio_empresa)
+
+		if dict_pegar_candidaturas:
+			candidaturas[dominio_empresa] = {
+				'nome': empresa['name'],
+				'logo': empresa['urlLogo'],
+				'candidaturas': dict_pegar_candidaturas
+			}
+		else:
+			pass
 
 	return candidaturas
 
@@ -99,17 +104,23 @@ def pegar_candidaturas(token, dominio_empresa):
 		candidatura_id = candidatura['applicationId']
 
 		info_candidatura = pegar_info_candidaturas(token, dominio_empresa, candidatura['applicationId'])
-		candidaturas[candidatura_id] = {
-			'id': candidatura['applicationId'],
-			'nome': candidatura['name'],
-			'testes': candidatura['jobStepCount'],
-			'teste_em_andamento': {
-				'id': info_candidatura['id'],
-				'teste': candidatura['jobStepCurrent'],
-				'nome': info_candidatura['nome'],
-				'descricao': info_candidatura['descricao']
-			},
-		}
+
+		if info_candidatura['status'] == 'reproved':
+			pass
+		else:
+			candidaturas[candidatura_id] = {
+				'id': candidatura['applicationId'],
+				'nome': candidatura['name'],
+				'status': info_candidatura['status'],
+				'testes': candidatura['jobStepCount'],
+				'teste_em_andamento': {
+					'id': info_candidatura['id'],
+					'teste': candidatura['jobStepCurrent'],
+					'nome': info_candidatura['nome'],
+					'descricao': info_candidatura['descricao'],
+					'status': info_candidatura['status_teste']
+				},
+			}
 
 	return candidaturas
 
@@ -133,8 +144,10 @@ def pegar_info_candidaturas(token, dominio_empresa, id_candidatura):
 
 	info_candidatura = {
 		'id': info_candidatura['currentStepId'],
+		'status': info_candidatura['status'],
 		'nome': teste['name'],
-		'descricao': teste['objectivesDescription']
+		'descricao': teste['objectivesDescription'],
+		'status_teste': teste['applicationStep']['status']
 
 	}
 
